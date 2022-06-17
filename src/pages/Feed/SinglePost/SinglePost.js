@@ -14,7 +14,7 @@ class SinglePost extends Component {
 
   componentDidMount() {
     const postId = this.props.match.params.postId;
-    fetch("http://localhost:8080/feed/post/" + postId, {
+    fetch("https://social-bloggin.herokuapp.com/" + postId, {
       headers: {
         Authorization: "Bearer " + this.props.token,
       },
@@ -30,7 +30,7 @@ class SinglePost extends Component {
           title: resData.post.title,
           author: resData.post.creator.name,
           image:
-            "http://localhost:8080/" +
+            "https://social-bloggin.herokuapp.com/" +
             decodeURIComponent(resData.post.imageUrl),
           date: new Date(resData.post.createdAt).toLocaleDateString("en-US"),
           content: resData.post.content,
